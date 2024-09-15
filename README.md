@@ -1,4 +1,4 @@
-# NoSQL Challenge: UK Food Standards Agency Data Analysis
+# MongoDB: UK Food Standards Agency Data Analysis
 
 
 
