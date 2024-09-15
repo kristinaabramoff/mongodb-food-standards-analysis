@@ -1,22 +1,37 @@
 # NoSQL Challenge: UK Food Standards Agency Data Analysis
-Repository: nosql-challenge
+
+
+
 ## Overview
-This project involves analyzing food hygiene ratings data from the UK Food Standards Agency to assist the magazine "Eat Safe, Love" in identifying establishments for future articles. The following steps were completed to achieve the project goals.
+
+This project analyzes food hygiene ratings data from the UK Food Standards Agency to assist the magazine *Eat Safe, Love* in identifying noteworthy establishments for future articles. Using MongoDB, PyMongo, and data from JSON files, the project involves database setup, updates, and exploratory data analysis to uncover insights into food hygiene standards across various locations.
+
+---
 
 ## Project Setup
-Repository Creation: A new repository called nosql-challenge was created and cloned to the local machine.
-File Setup: Jupyter notebook starter files and the Resources folder containing establishments.json were added to the repository. Changes were pushed to GitHub.
 
-### Part 1: Database and Jupyter Notebook Set Up
-Data Import: The data from establishments.json was imported into a MongoDB database named uk_food with a collection named establishments.
-Library Imports: The necessary libraries, PyMongo and Pretty Print (pprint), were imported.
-Mongo Client Instance: An instance of the Mongo Client was created, and the database and data import were confirmed by listing the databases and collections and displaying a document from the collection.
+- **Repository Creation**: A new repository called `nosql-challenge` was created and cloned to the local machine.
+- **File Setup**: Jupyter Notebook starter files and the `Resources` folder containing `establishments.json` were added to the repository. All changes were pushed to GitHub.
 
-### Part 2: Database Updates
-New Restaurant Addition: A new restaurant, "Penang Flavours," was added to the database with the following details:
+---
 
-json
-Copy code
+## Part 1: Database and Jupyter Notebook Setup
+
+**File Used:** `NoSQL_setup_starter.ipynb`
+
+- **Data Import**: The data from `establishments.json` was imported into a MongoDB database named `uk_food` with a collection named `establishments`.
+- **Library Imports**: Necessary libraries, including PyMongo and Pretty Print (`pprint`), were imported.
+- **Mongo Client Instance**: An instance of the Mongo Client was created, and the database and data import were verified by listing the databases, collections, and displaying a document from the collection.
+
+---
+
+## Part 2: Database Updates
+
+**File Used:** `NoSQL_setup_starter.ipynb`
+
+- **New Restaurant Addition**: A new restaurant, *Penang Flavours*, was added to the database with details such as business type, address, geocode, and a pending rating status.
+
+```json
 {
     "BusinessName": "Penang Flavours",
     "BusinessType": "Restaurant/Cafe/Canteen",
@@ -41,21 +56,35 @@ Copy code
         "longitude": "0.08384000",
         "latitude": "51.49014200"
     },
-    "RightToReply": "",
-    "Distance": 4623.9723280747176,
-    "NewRatingPending": True
+    "Distance": 4623.97,
+    "NewRatingPending": true
 }
-BusinessTypeID Update: The BusinessTypeID for "Restaurant/Cafe/Canteen" was retrieved and updated for the new restaurant.
+``` 
 
-Document Deletion: All documents related to the Dover Local Authority were identified and removed from the database.
+- BusinessTypeID Update: The correct BusinessTypeID for "Restaurant/Cafe/Canteen" was retrieved and updated for Penang Flavours.
+- Document Deletion: All documents related to the Dover Local Authority were removed from the database.
+- Field Conversion:
+ The latitude and longitude fields were converted from strings to decimal numbers.
+ The RatingValue field was converted from strings to integers using update_many.
 
-Field Conversion: The latitude and longitude fields were converted to decimal numbers, and the RatingValue field was converted to integers using update_many.
+## Part 3: Exploratory Data Analysis
 
-### Part 3: Exploratory Analysis
-Hygiene Score of 20: Establishments with a hygiene score of 20 were identified and analyzed.
+**File Used:** `NoSQL_setup_starter.ipynb`
 
-London Establishments with High Ratings: Establishments in London with a RatingValue of 4 or higher were found and analyzed.
+- Hygiene Score of 20: Established which establishments had a hygiene score of 20, analyzed their distribution and impact.
+- London Establishments with High Ratings: Identified and analyzed establishments in London with a RatingValue of 4 or higher, using regex to match London-based locations.
+- Top 5 Establishments Near Penang Flavours: Found the top 5 establishments with a RatingValue of 5, sorted by lowest hygiene score, located nearest to Penang Flavours based on geocode proximity.
+- Hygiene Score of 0 Analysis: Calculated the number of establishments with a hygiene score of 0 in each Local Authority area, listed the top 10 Local Authority areas by establishment count.
+- 
+## Key Technologies and Skills Demonstrated
+- MongoDB/NoSQL: Hands-on experience with MongoDB for data management, including database creation, collection updates, and document manipulation.
+- PyMongo: Used PyMongo to interface with MongoDB from Python, performing queries, updates, and data analysis.
+- Data Cleaning: Applied field conversions and modifications (e.g., string to decimal) to ensure data accuracy and readiness for analysis.
+- Geospatial Analysis: Performed proximity-based queries to analyze establishments near specific locations.
+- Exploratory Data Analysis (EDA): Extracted insights through targeted queries and aggregation techniques, providing valuable findings for Eat Safe, Love.
 
-Top 5 Establishments Near "Penang Flavours": The top 5 establishments with a RatingValue of 5, sorted by the lowest hygiene score and located near "Penang Flavours," were identified.
+  ## How to Use
+  clone repository
 
-Hygiene Score of 0 Analysis: The number of establishments with a hygiene score of 0 in each Local Authority area was counted, and the top ten areas were listed.
+- For database setup and updates, run NoSQL_setup_starter.ipynb.
+- For exploratory data analysis, run NoSQL_analysis_starter.ipynb.
