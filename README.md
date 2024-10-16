@@ -75,7 +75,11 @@ This project analyzes food hygiene ratings data from the UK Food Standards Agenc
 - London Establishments with High Ratings: Identified and analyzed establishments in London with a RatingValue of 4 or higher, using regex to match London-based locations.
 - Top 5 Establishments Near Penang Flavours: Found the top 5 establishments with a RatingValue of 5, sorted by lowest hygiene score, located nearest to Penang Flavours based on geocode proximity.
 - Hygiene Score of 0 Analysis: Calculated the number of establishments with a hygiene score of 0 in each Local Authority area, listed the top 10 Local Authority areas by establishment count.
-- 
+
+  ## Example analysis
+![example_query](https://github.com/user-attachments/assets/c2ba852c-7c0f-4358-87d6-fe76584006fb)
+
+  
 ## Key Technologies and Skills Demonstrated
 - MongoDB/NoSQL: Hands-on experience with MongoDB for data management, including database creation, collection updates, and document manipulation.
 - PyMongo: Used PyMongo to interface with MongoDB from Python, performing queries, updates, and data analysis.
